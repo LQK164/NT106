@@ -27,7 +27,7 @@ namespace Week3
         private void Connect_Click(object sender, EventArgs e)
         {
             UDPClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            UDPClient.Bind(new IPEndPoint(IPAddress.Parse("192.168.0.104"), 11001));
+            UDPClient.Bind(new IPEndPoint(IPAddress.Any, 9091));
             thrdUDPClient = new Thread(new ThreadStart(ClientThread));
             thrdUDPClient.Start();
             this.Connect.Enabled = false;
@@ -35,7 +35,7 @@ namespace Week3
 
         private void Send_Click(object sender, EventArgs e)
         {
-            IPEndPoint remote = new IPEndPoint(IPAddress.Parse("192.168.0.104"), 11000);
+            IPEndPoint remote = new IPEndPoint(IPAddress.Parse("255.255.255.255"), 9090);
             EndPoint server_endpoint = (EndPoint)remote;
             byte[] message = Encoding.UTF8.GetBytes(Message_Box.Text);
             try
@@ -69,7 +69,7 @@ namespace Week3
         {
             IPEndPoint remote = new IPEndPoint(IPAddress.Any, 0);
             EndPoint serverEndpoint = (EndPoint)remote;
-            while (connecting)
+            while (true)
             {
                 try
                 {
@@ -77,12 +77,23 @@ namespace Week3
                     int length = UDPClient.ReceiveFrom(data, ref serverEndpoint);
                     string message = Encoding.UTF8.GetString(data, 0, length);
                     ReceiveData(message, remote.Address);
+                    if (InvokeRequired)
+                    {
+                        Invoke(new MethodInvoker(delegate
+                        {
+                            ChatBox.Items.Add("Server: " + message);
+                        }));
+                    }   
+                    else
+                    {
+                        ChatBox.Items.Add("Server: " + message);
+                    }    
                 }
 
                 catch
                 {
                     MessageBox.Show("Failed! Please connect again.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    thrdUDPClient.Abort();
+                    thrdUDPClient.Start();
                 }
             }
         }

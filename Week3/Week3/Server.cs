@@ -25,16 +25,17 @@ namespace Week3
 
         private void Server_Load(object sender, EventArgs e)
         {
-            UDPServer = new UdpClient(11000);
+            UDPServer = new UdpClient(9090);
             thrdUDPServer = new Thread(new ThreadStart(ServerThread));
             thrdUDPServer.Start();
         }
 
         private void Send_Click(object sender, EventArgs e)
         {
-            byte[] message = Encoding.UTF8.GetBytes(Message_Box.Text);
-            UDPServer.Send(message, message.Length, "192.168.0.104", 11001);
-            ChatBox.Items.Add($"Server: {Encoding.UTF8.GetString(message)}");
+            string message = Message_Box.Text;
+            byte[] data = Encoding.UTF8.GetBytes(message);
+            UDPServer.Send(data, data.Length, "127.0.0.1", 9091);
+            ChatBox.Items.Add("Client: " + message);
             Message_Box.Text = string.Empty;
         }
 
@@ -54,7 +55,7 @@ namespace Week3
 
         private void ServerThread()
         {
-            IPEndPoint clientEndpoint = new IPEndPoint(IPAddress.Parse("192.168.0.104"), 11000);
+            IPEndPoint clientEndpoint = new IPEndPoint(IPAddress.Parse("172.30.172.49"), 11000);
             while (listening)
             {
                 try
@@ -67,7 +68,7 @@ namespace Week3
                 catch
                 {
                     MessageBox.Show("Failed! Please send again.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    thrdUDPServer.Abort();
+                    thrdUDPServer.Start();
                 }
             }
         }
@@ -75,6 +76,11 @@ namespace Week3
         private void Exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Message_Box_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

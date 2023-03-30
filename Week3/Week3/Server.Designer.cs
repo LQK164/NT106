@@ -62,6 +62,7 @@
             Message_Box.Name = "Message_Box";
             Message_Box.Size = new Size(601, 31);
             Message_Box.TabIndex = 0;
+            Message_Box.TextChanged += Message_Box_TextChanged;
             // 
             // ChatBox
             // 
