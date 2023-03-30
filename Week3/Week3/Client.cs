@@ -35,7 +35,7 @@ namespace Week3
 
         private void Send_Click(object sender, EventArgs e)
         {
-            IPEndPoint remote = new IPEndPoint(IPAddress.Parse("255.255.255.255"), 9090);
+            IPEndPoint remote = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9090);
             EndPoint server_endpoint = (EndPoint)remote;
             byte[] message = Encoding.UTF8.GetBytes(Message_Box.Text);
             try
