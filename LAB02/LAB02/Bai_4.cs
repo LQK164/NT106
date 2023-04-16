@@ -1,4 +1,20 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System.IO;
+using System.Collections;
+using System.Xml.Linq;
+using System.Net.NetworkInformation;
+using System.Runtime.InteropServices.ComTypes;
+using System.Runtime.InteropServices;
 
 namespace LAB02
 {
