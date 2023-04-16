@@ -122,7 +122,7 @@ namespace LAB02
             {
                 using (FileStream fs = File.Open(sfd.FileName, FileMode.Create))
                 {
-                    BinaryFormatter bf = new BinaryFormatter();
+                    BinaryFormatter bf = new BinaryFormatter(); #pragma warning disable SYSLIB0011
                     bf.Serialize(fs, s);
                 }
             }
@@ -135,7 +135,7 @@ namespace LAB02
             {
                 using (FileStream fs = File.Open(ofd.FileName, FileMode.Open))
                 {
-                    BinaryFormatter bf = new BinaryFormatter();
+                    BinaryFormatter bf = new BinaryFormatter(); #pragma warning disable SYSLIB0011
                     var student = (Student[])bf.Deserialize(fs);
                     foreach (Student s in students)
                     {
