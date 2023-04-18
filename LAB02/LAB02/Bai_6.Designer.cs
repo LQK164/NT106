@@ -30,8 +30,7 @@
         {
             treeFolder = new TreeView();
             listView = new ListView();
-            pictureBoxShow = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxShow).BeginInit();
+            panel = new Panel();
             SuspendLayout();
             // 
             // treeFolder
@@ -46,32 +45,29 @@
             // 
             listView.Location = new Point(343, 12);
             listView.Name = "listView";
-            listView.Size = new Size(286, 61);
+            listView.Size = new Size(445, 190);
             listView.TabIndex = 1;
             listView.UseCompatibleStateImageBehavior = false;
             listView.SelectedIndexChanged += listView_SelectedIndexChanged;
             // 
-            // pictureBoxShow
+            // panel
             // 
-            pictureBoxShow.Location = new Point(343, 79);
-            pictureBoxShow.Name = "pictureBoxShow";
-            pictureBoxShow.Size = new Size(685, 379);
-            pictureBoxShow.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxShow.TabIndex = 2;
-            pictureBoxShow.TabStop = false;
+            panel.Location = new Point(343, 240);
+            panel.Name = "panel";
+            panel.Size = new Size(445, 198);
+            panel.TabIndex = 2;
             // 
             // Bai_6
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1040, 473);
-            Controls.Add(pictureBoxShow);
+            ClientSize = new Size(800, 450);
+            Controls.Add(panel);
             Controls.Add(listView);
             Controls.Add(treeFolder);
             Name = "Bai_6";
             Text = "Bai_6";
             Load += Bai_6_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBoxShow).EndInit();
             ResumeLayout(false);
         }
 
@@ -79,6 +75,6 @@
 
         private TreeView treeFolder;
         private ListView listView;
-        private PictureBox pictureBoxShow;
+        private Panel panel;
     }
 }

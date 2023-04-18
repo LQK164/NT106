@@ -125,9 +125,8 @@ namespace LAB02
 
                 if (File.Exists(fullFileName) && Path.GetExtension(fullFileName).ToLower() == ".txt")
                 {
-                    PictureBox pic = new PictureBox();
 
-                    pic.Controls.Clear();
+                    panel.Controls.Clear();
 
                     TextBox txtBox = new TextBox();
                     txtBox.Dock = DockStyle.Fill;
@@ -135,7 +134,7 @@ namespace LAB02
 
                     txtBox.Text = File.ReadAllText(fullFileName);
 
-                    pic.Controls.Add(txtBox);
+                    panel.Controls.Add(txtBox);
                 }
                 else if (listView.SelectedItems.Count > 0)
                 {
@@ -143,7 +142,7 @@ namespace LAB02
                     if (File.Exists(filePath))
                     {
                         byte[] fileContent = File.ReadAllBytes(filePath);
-                        pictureBoxShow.BackgroundImage = Image.FromStream(new MemoryStream(fileContent));
+                        panel.BackgroundImage = Image.FromStream(new MemoryStream(fileContent));
                     }
                 }
             }
@@ -152,7 +151,5 @@ namespace LAB02
                 MessageBox.Show("Không thể mở file!");
             }
         }
-
-
     }
 }
