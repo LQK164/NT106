@@ -1,4 +1,20 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
+using System.Collections;
+using System.Xml.Linq;
+using System.Net.NetworkInformation;
+using System.Runtime.InteropServices.ComTypes;
+using System.Runtime.InteropServices;
 
 namespace LAB02
 {
@@ -35,7 +51,7 @@ namespace LAB02
             }
         };
 
-        private List<Student> students = new List<Student>();
+        List<Student> students = new List<Student>();
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -106,8 +122,9 @@ namespace LAB02
             {
                 using (FileStream fs = File.Open(sfd.FileName, FileMode.Create))
                 {
-                    BinaryFormatter bf = new BinaryFormatter();
-                    bf.Serialize(fs, s);
+                    XmlSerializer xs = new XmlSerializer(typeof(Student));
+                    xs.Serialize(fs, s);
+                    
                 }
             }
         }
@@ -119,8 +136,8 @@ namespace LAB02
             {
                 using (FileStream fs = File.Open(ofd.FileName, FileMode.Open))
                 {
-                    BinaryFormatter bf = new BinaryFormatter();
-                    var student = (Student[])bf.Deserialize(fs);
+                    XmlSerializer xs = new XmlSerializer(typeof(Student));
+                    var student = (Student[])xs.Deserialize(fs);
                     foreach (Student s in students)
                     {
                         s.average = (s.score1 + s.score2 + s.score3) / 3.0f;

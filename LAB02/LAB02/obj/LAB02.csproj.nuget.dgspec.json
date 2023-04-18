@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User.DESKTOP-CTIQ4C3\\Documents\\NT106\\LAB02\\LAB02\\LAB02.csproj": {}
+    "C:\\Users\\User.DESKTOP-CTIQ4C3\\Documents\\NT106\\NT106\\LAB02\\LAB02\\LAB02.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User.DESKTOP-CTIQ4C3\\Documents\\NT106\\LAB02\\LAB02\\LAB02.csproj": {
+    "C:\\Users\\User.DESKTOP-CTIQ4C3\\Documents\\NT106\\NT106\\LAB02\\LAB02\\LAB02.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User.DESKTOP-CTIQ4C3\\Documents\\NT106\\LAB02\\LAB02\\LAB02.csproj",
+        "projectUniqueName": "C:\\Users\\User.DESKTOP-CTIQ4C3\\Documents\\NT106\\NT106\\LAB02\\LAB02\\LAB02.csproj",
         "projectName": "LAB02",
-        "projectPath": "C:\\Users\\User.DESKTOP-CTIQ4C3\\Documents\\NT106\\LAB02\\LAB02\\LAB02.csproj",
+        "projectPath": "C:\\Users\\User.DESKTOP-CTIQ4C3\\Documents\\NT106\\NT106\\LAB02\\LAB02\\LAB02.csproj",
         "packagesPath": "C:\\Users\\User.DESKTOP-CTIQ4C3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User.DESKTOP-CTIQ4C3\\Documents\\NT106\\LAB02\\LAB02\\obj\\",
+        "outputPath": "C:\\Users\\User.DESKTOP-CTIQ4C3\\Documents\\NT106\\NT106\\LAB02\\LAB02\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User.DESKTOP-CTIQ4C3\\AppData\\Roaming\\NuGet\\NuGet.Config",
